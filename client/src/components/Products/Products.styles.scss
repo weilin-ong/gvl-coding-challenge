@@ -1,0 +1,23 @@
+.products-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 40%;
+  padding: 20px;
+  gap: 20px;
+  height: 90vh;
+  align-items: flex-start;
+
+  .product {
+    width: 20rem;
+    height: 15rem;
+    border: solid 1px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .product:hover {
+    background-color: blanchedalmond;
+  }
+}

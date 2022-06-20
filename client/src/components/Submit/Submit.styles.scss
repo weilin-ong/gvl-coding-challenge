@@ -1,0 +1,19 @@
+.submit-container {
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 60vh;
+  width: 60vh;
+  background-color: white;
+  border: solid 2px black;
+  text-transform: capitalize;
+
+  .submit-row {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

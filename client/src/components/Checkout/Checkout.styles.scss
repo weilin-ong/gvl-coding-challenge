@@ -1,0 +1,38 @@
+.checkout-container {
+  width: 60%;
+  padding: 20px;
+  border-right: solid 1px black;
+  height: 90vh;
+  text-transform: capitalize;
+
+  h2 {
+    text-align: center;
+    padding: 10px;
+  }
+
+  //   .checkout-title {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     padding: 20px;
+  //   }
+
+  .checkout-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .checkout-buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  button {
+    width: 15rem;
+    height: 6rem;
+    border-radius: 10px;
+    border: solid 1px;
+    text-transform: capitalize;
+  }
+}

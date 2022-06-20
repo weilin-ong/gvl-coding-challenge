@@ -1,0 +1,21 @@
+nav {
+  height: 10vh;
+  padding: 20px 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  text-transform: uppercase;
+  background-color: black;
+  color: white;
+}
+
+.navLink {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15rem;
+}
+
+.navLink:hover {
+  background-color: coral;
+}

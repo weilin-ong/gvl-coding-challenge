@@ -37,7 +37,7 @@ const orderSchema = new mongoose.Schema({
   },
   tax: {
     type: Number,
-    required: true,
+    default: 0.06,
   },
   service_charge: {
     type: Number,
