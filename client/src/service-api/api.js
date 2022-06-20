@@ -21,11 +21,6 @@ export function getAllOrders() {
   return apiHelper('GET', 'allOrders');
 }
 
-//get 1 order
-export function getOneOrder(id) {
-  return apiHelper('GET', `oneOrder/${id}`);
-}
-
 //create order
 export function createOrder(order) {
   return apiHelper('POST', 'oneOrder', body(order));
@@ -37,6 +32,6 @@ export function completeOrder(id, transaction) {
 }
 
 //refund order
-export function refundOrder(id, refund) {
-  return apiHelper('PUT', `oneOrder/${id}/refund`, body(refund));
+export function refundOrder(id) {
+  return apiHelper('PUT', `oneOrder/${id}/refund`);
 }

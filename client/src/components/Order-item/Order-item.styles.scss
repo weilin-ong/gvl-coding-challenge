@@ -1,10 +1,16 @@
-.quantity {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
+.order-container {
+  .order-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  :hover {
+    background-color: antiquewhite;
+  }
 
-  &-control {
-    cursor: pointer;
+  button {
+    padding: 10px;
+    text-transform: capitalize;
   }
 }

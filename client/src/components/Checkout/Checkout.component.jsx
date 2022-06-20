@@ -13,12 +13,16 @@ export default function Checkout() {
     subTotal,
     setToggleSubmit,
     setOrderID,
+    orderID,
   } = useContext(OrdersContext);
 
   function handleCheckout() {
-    createOrder({ total_amount_cents: totalPrice, items: order })
-      .then((id) => setOrderID(id))
-      .catch((err) => console.log(err));
+    //if order already exists on server
+    if (!orderID) {
+      createOrder({ total_amount_cents: totalPrice, items: order })
+        .then((id) => setOrderID(id))
+        .catch((err) => console.log(err));
+    }
     setToggleSubmit((prev) => !prev);
   }
 
@@ -36,7 +40,7 @@ export default function Checkout() {
         <div>cost(RM)</div>
       </div>
       {order.map((item) => (
-        <CheckoutItem key={item.id} item={item} />
+        <CheckoutItem key={item.id || item._id} item={item} />
       ))}
       <div className='checkout-summary'>
         <div>subtotal</div>
