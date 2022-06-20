@@ -1,14 +1,29 @@
 import { useContext } from 'react';
 import { OrdersContext } from '../../contexts/order.context';
-import { OrderItem } from '../';
+import { CheckoutItem } from '../';
+import { createOrder } from '../../service-api/api';
 import './Checkout.styles.scss';
 
 export default function Checkout() {
-  const { order, totalItems, totalPrice, subTotal, setToggleSubmit } =
-    useContext(OrdersContext);
+  const {
+    order,
+    setOrder,
+    totalItems,
+    totalPrice,
+    subTotal,
+    setToggleSubmit,
+    setOrderID,
+  } = useContext(OrdersContext);
 
   function handleCheckout() {
+    createOrder({ total_amount_cents: totalPrice, items: order })
+      .then((id) => setOrderID(id))
+      .catch((err) => console.log(err));
     setToggleSubmit((prev) => !prev);
+  }
+
+  function handleCancel() {
+    setOrder([]);
   }
 
   return (
@@ -21,7 +36,7 @@ export default function Checkout() {
         <div>cost(RM)</div>
       </div>
       {order.map((item) => (
-        <OrderItem key={item.id} item={item} />
+        <CheckoutItem key={item.id} item={item} />
       ))}
       <div className='checkout-summary'>
         <div>subtotal</div>
@@ -44,7 +59,7 @@ export default function Checkout() {
         <div>RM {totalPrice}</div>
       </div>
       <div className='checkout-buttons'>
-        <button>cancel</button>
+        <button onClick={handleCancel}>cancel</button>
         <button onClick={handleCheckout}>checkout</button>
       </div>
     </div>

@@ -31,17 +31,12 @@ const transactionSchema = new mongoose.Schema({
 });
 
 const orderSchema = new mongoose.Schema({
-  reference_no: {
-    type: String,
-    required: true,
-  },
   tax: {
     type: Number,
     default: 0.06,
   },
   service_charge: {
     type: Number,
-    required: true,
   },
   total_amount_cents: {
     type: Number,

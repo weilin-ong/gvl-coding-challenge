@@ -22,7 +22,7 @@ async function getOneOrder(req, res) {
 async function createOneOrder(req, res) {
   try {
     const order = await Order.create(req.body);
-    return res.status(200).json(order);
+    return res.status(200).json(order._id);
   } catch (error) {
     return res.status(500).json(error);
   }
@@ -34,8 +34,8 @@ async function completeOrder(req, res) {
     const { paid_amount_cents, payment_method } = req.body;
     const { total_amount_cents } = await Order.findById(id);
 
-    //check if amounts are aligned
-    if (total_amount_cents !== paid_amount_cents)
+    //if paid amount is lesser
+    if (total_amount_cents > paid_amount_cents)
       return res
         .status(400)
         .send({ error: '400', message: 'Incorrect paid amount' });

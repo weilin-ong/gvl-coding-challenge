@@ -14,7 +14,7 @@ export default function Products() {
           className='product'
           onClick={() => addItemToOrder(product)}
         >
-          {product.name}
+          {product.product_name}
         </div>
       ))}
     </div>

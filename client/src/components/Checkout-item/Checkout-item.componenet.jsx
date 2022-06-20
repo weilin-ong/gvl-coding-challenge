@@ -3,13 +3,13 @@ import { OrdersContext } from '../../contexts/order.context';
 import './Checkout-item.styles.scss';
 
 export default function CheckoutItem({ item }) {
-  const { cost, quantity, name } = item;
+  const { cost, quantity, product_name } = item;
 
   const { addItemToOrder, removeItemToOrder } = useContext(OrdersContext);
 
   return (
     <div className='checkout-summary'>
-      <div>{name}</div>
+      <div>{product_name}</div>
       <div>{cost}</div>
       <div className='quantity'>
         <div

@@ -3,6 +3,9 @@ import { createContext, useState, useEffect } from 'react';
 
 const defaultVal = {
   order: [],
+  orderID: '',
+  setOrderID: function () {},
+  setOrder: function () {},
   addItemToOrder: function () {},
   removeItemToOrder: function () {},
   subTotal: 0,
@@ -42,6 +45,7 @@ function removeItem(orderItems, product) {
 
 export function OrderProvider({ children }) {
   const [order, setOrder] = useState([]);
+  const [orderID, setOrderID] = useState('');
   const [totalItems, setTotalItems] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -79,6 +83,9 @@ export function OrderProvider({ children }) {
 
   const value = {
     order,
+    setOrder,
+    orderID,
+    setOrderID,
     addItemToOrder,
     removeItemToOrder,
     totalItems,

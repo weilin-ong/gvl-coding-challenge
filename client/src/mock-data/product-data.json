@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "name": "P1",
+    "product_name": "P1",
     "cost": 2
   },
   {
     "id": 2,
-    "name": "P2",
+    "product_name": "P2",
     "cost": 4
   },
   {
     "id": 3,
-    "name": "P3",
+    "product_name": "P3",
     "cost": 6
   },
   {
     "id": 4,
-    "name": "P4",
+    "product_name": "P4",
     "cost": 8
   }
 ]
