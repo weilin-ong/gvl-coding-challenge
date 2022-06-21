@@ -19,7 +19,7 @@ export default function OrderPage() {
         <h4>status</h4>
         <h4>refund</h4>
       </div>
-      {allOrders.length > 0 ? (
+      {allOrders.length ? (
         allOrders.map((order) => <OrderItem key={order._id} order={order} />)
       ) : (
         <div>No order yet.</div>
