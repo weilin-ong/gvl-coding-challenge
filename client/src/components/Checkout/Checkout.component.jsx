@@ -18,12 +18,14 @@ export default function Checkout() {
 
   function handleCheckout() {
     //if order already exists on server
-    if (!orderID) {
-      createOrder({ total_amount_cents: totalPrice, items: order })
-        .then((id) => setOrderID(id))
-        .catch((err) => console.log(err));
+    if (order.length !== 0) {
+      if (!orderID) {
+        createOrder({ total_amount_cents: totalPrice, items: order })
+          .then((id) => setOrderID(id))
+          .catch((err) => console.log(err));
+      }
+      setToggleSubmit((prev) => !prev);
     }
-    setToggleSubmit((prev) => !prev);
   }
 
   function handleCancel() {

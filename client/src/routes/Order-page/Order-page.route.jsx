@@ -14,10 +14,10 @@ export default function OrderPage() {
     <div>
       <Navbar />
       <div className='order-title'>
-        <div>reference no.</div>
-        <div>total cost</div>
-        <div>status</div>
-        <div>refund</div>
+        <h4>reference no.</h4>
+        <h4>total cost</h4>
+        <h4>status</h4>
+        <h4>refund</h4>
       </div>
       {allOrders.map((order) => (
         <OrderItem key={order._id} order={order} />

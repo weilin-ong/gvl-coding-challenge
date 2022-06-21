@@ -1,4 +1,5 @@
-const baseURL = 'http://127.0.0.1:3001';
+const baseURL =
+  process.env.REACT_APP_SERVER_BASE_URL || 'http://127.0.0.1:3001';
 
 const headers = { 'Content-Type': 'application/json' };
 
