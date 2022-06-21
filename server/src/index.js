@@ -1,3 +1,6 @@
+const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const cors = require('cors');
 const router = require('./router');
@@ -5,10 +8,13 @@ const app = express();
 const { connectDB } = require('./models/');
 
 const hostname = '127.0.0.1';
-const PORT = 3001;
+let PORT = process.env.PORT;
+if (PORT == null || PORT == '') {
+  PORT = 3001;
+}
 
 const corsConfig = {
-  origin: 'http://localhost:3000',
+  origin: process.env.CLIENT_URL || 'http://localhost:3000',
   credentials: true,
 };
 
