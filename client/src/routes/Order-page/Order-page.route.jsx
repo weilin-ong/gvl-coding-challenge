@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import './Order-page.styles.scss';
 
 export default function OrderPage() {
-  const [allOrders, setAllOrders] = useState([]);
+  const [allOrders, setAllOrders] = useState(null);
 
   useEffect(() => {
     getAllOrders().then((data) => setAllOrders(data));
