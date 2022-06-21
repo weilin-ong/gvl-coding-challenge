@@ -25,7 +25,7 @@ export default function OrderPage() {
         <h4>status</h4>
         <h4>refund</h4>
       </div>
-      {allOrders.length ? (allOrders.length > 0 ? orders : ann2) : ann1}
+      {allOrders ? (allOrders.length > 0 ? orders : ann2) : ann1}
     </div>
   );
 }
