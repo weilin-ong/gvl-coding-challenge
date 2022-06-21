@@ -9,7 +9,7 @@ export default function Submit() {
   const [inputVal, setInputVal] = useState({
     paidAmount: 0,
     totalPrice: totalPrice,
-    paymentMethod: '',
+    paymentMethod: 'cash',
     change: 0,
   });
 
