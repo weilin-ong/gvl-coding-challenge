@@ -7,9 +7,9 @@ export default function Products() {
   const { addItemToOrder } = useContext(OrdersContext);
 
   return (
-    <>
+    <div className='products-container'>
       <h2>Products</h2>
-      <div className='products-container'>
+      <div className='products-overview'>
         {products.map((product) => (
           <div
             key={product.id}
@@ -20,6 +20,6 @@ export default function Products() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
