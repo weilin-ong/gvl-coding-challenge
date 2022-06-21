@@ -7,16 +7,19 @@ export default function Products() {
   const { addItemToOrder } = useContext(OrdersContext);
 
   return (
-    <div className='products-container'>
-      {products.map((product) => (
-        <div
-          key={product.id}
-          className='product'
-          onClick={() => addItemToOrder(product)}
-        >
-          {product.product_name}
-        </div>
-      ))}
-    </div>
+    <>
+      <h2>Products</h2>
+      <div className='products-container'>
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className='product'
+            onClick={() => addItemToOrder(product)}
+          >
+            {product.product_name}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
