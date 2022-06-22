@@ -25,7 +25,7 @@ export default function Submit() {
         paid_amount_cents: inputVal.paidAmount,
         payment_method: inputVal.paymentMethod,
       })
-        .then((res) => console.log(res))
+        .then((res) => console.log(res.status))
         .catch((err) => console.log(err));
       setToggleSubmit((prev) => !prev);
       setOrder([]);

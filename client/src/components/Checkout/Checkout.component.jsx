@@ -36,13 +36,10 @@ export default function Checkout() {
       }
 
       //if order already exist on server and the order items are different
-      if (
-        orderID === existingOrder._id &&
-        totalPrice !== existingOrder.total_amount_cents
-      ) {
+      if (existingOrder && totalPrice !== existingOrder.total_amount_cents) {
         //update order
         updateOrder(orderID, { total_amount_cents: totalPrice, items: order })
-          .then((res) => console.log(res))
+          .then((res) => console.log(res.status))
           .catch((err) => console.log(err));
       }
       setToggleSubmit((prev) => !prev);
