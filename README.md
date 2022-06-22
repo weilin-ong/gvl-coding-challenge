@@ -12,7 +12,8 @@ Live site: https://pos-cashier.netlify.app/
 2. Increase or decrease the quantity of the selected products by clicking "-" and "+" buttons under "Quantity".
 3. Hit "Cancel" button to reset the order.
 4. Hit "Checkout" button to create a new order if the order is not existed on server yet.
-5. Checkout Form pops up, hit "Close" button and the order's status will be shown as "pending" on Order Summary page. Hit "Submit" button to complete the order.
+5. Checkout Form pops up, user to input the "Total Paid Amount" and select "Payment Method". "Change" indicates the amount of "Total Paid Amount" minus "Total" and is calculated automatically.
+6. Hit "Close" button and the order's status will be shown as "pending" on Order Summary page. Hit "Submit" button to complete the order.
 
 ### Order Summary
 
