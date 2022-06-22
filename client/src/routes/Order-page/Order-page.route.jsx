@@ -20,7 +20,7 @@ export default function OrderPage() {
         <h4>reference no.</h4>
         <h4>total cost</h4>
         <h4>status</h4>
-        <h4>refund</h4>
+        <h4>refund/pay</h4>
       </div>
       {allOrders ? (
         allOrders.length !== 0 ? (

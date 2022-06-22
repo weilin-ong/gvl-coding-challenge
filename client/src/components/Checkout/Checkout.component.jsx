@@ -1,10 +1,12 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { OrdersContext } from '../../contexts/order.context';
 import { CheckoutItem } from '../';
-import { createOrder } from '../../service-api/api';
+import { createOrder, getOneOrder, updateOrder } from '../../service-api/api';
 import './Checkout.styles.scss';
 
 export default function Checkout() {
+  const [existingOrder, setExistingOrder] = useState(null);
+
   const {
     order,
     setOrder,
@@ -16,12 +18,31 @@ export default function Checkout() {
     orderID,
   } = useContext(OrdersContext);
 
+  useEffect(() => {
+    if (orderID) {
+      getOneOrder(orderID).then((orderDetails) =>
+        setExistingOrder(orderDetails)
+      );
+    }
+  }, [orderID]);
+
   function handleCheckout() {
-    //if order already exists on server
     if (order.length !== 0) {
+      //if order does not exist on server
       if (!orderID) {
         createOrder({ total_amount_cents: totalPrice, items: order })
           .then((id) => setOrderID(id))
+          .catch((err) => console.log(err));
+      }
+
+      //if order already exist on server and the order items are different
+      if (
+        orderID === existingOrder._id &&
+        totalPrice !== existingOrder.total_amount_cents
+      ) {
+        //update order
+        updateOrder(orderID, { total_amount_cents: totalPrice, items: order })
+          .then((res) => console.log(res))
           .catch((err) => console.log(err));
       }
       setToggleSubmit((prev) => !prev);

@@ -9,10 +9,41 @@ async function getAllOrders(req, res) {
   }
 }
 
+async function getOneOrder(req, res) {
+  try {
+    const { id } = req.params;
+    const order = await Order.findById(id);
+    return res.status(200).json(order);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+}
+
 async function createOneOrder(req, res) {
   try {
     const order = await Order.create(req.body);
     return res.status(200).json(order._id);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+}
+
+async function updateOrder(req, res) {
+  try {
+    const { id } = req.params;
+    const { total_amount_cents, items } = req.body;
+
+    //update order
+    await Order.findByIdAndUpdate(
+      id,
+      {
+        items,
+        total_amount_cents,
+      },
+      { new: true }
+    );
+
+    return res.status(200).json({ status: 'updated' });
   } catch (error) {
     return res.status(500).json(error);
   }
@@ -74,6 +105,8 @@ async function refundOrder(req, res) {
 
 module.exports = {
   getAllOrders,
+  getOneOrder,
+  updateOrder,
   createOneOrder,
   completeOrder,
   refundOrder,

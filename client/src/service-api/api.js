@@ -22,9 +22,18 @@ export function getAllOrders() {
   return apiHelper('GET', 'allOrders');
 }
 
+//get 1 order
+export function getOneOrder(id) {
+  return apiHelper('GET', `oneOrder/${id}`);
+}
+
 //create order
 export function createOrder(order) {
   return apiHelper('POST', 'oneOrder', body(order));
+}
+
+export function updateOrder(id, updatedOrder) {
+  return apiHelper('PUT', `oneOrder/${id}/update`, body(updatedOrder));
 }
 
 //complete order
